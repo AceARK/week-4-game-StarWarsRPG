@@ -38,22 +38,46 @@ class Character {
 	}
 
 }
-
+ 
 $(document).ready(function(){
+
+	$("#player1").data("info", {"name":"Obi-Wan Kenobe", "healthPoints":140, "attackPower":9, "counterAttackPower":10});
+	$("#player2").data("info", {"name":"Darth Vader", "healthPoints":160, "attackPower":14, "counterAttackPower":25});
+	$("#player3").data("info", {"name":"Luke Skywalker", "healthPoints":120, "attackPower":7, "counterAttackPower":8});
+	$("#player4").data("info", {"name":"Darth Maul", "healthPoints":140, "attackPower":10, "counterAttackPower":20});
 
 	var attacker;
 	var defender;
+	var attackerLocked = false;
 
-	// Creating new attacker instance
-	$(".attacker").on("click", function() {
-		attacker = new Character($(this).data('name'),$(this).data('attackpower'),$(this).data('healthpoints'),0);
+	$(".contender").on("click", function() {
+		if(!attackerLocked) {
+			$(".attacker").html($(this).html());
+			$(".attacker").data("info", $(this).data("info"));
+		} else {
+			$(".defender").html($(this).html());
+			$(".defender").data("info", $(this).data("info"));
+		}
+		     
 	});
 
+	// Creating new attacker instance /////////////////////// On click of Lock attacker button /////////////////////////
+	$("#lockAttacker").on("click", function() {
+		attackerLocked = true;
+		var attackerInfo = $(".attacker").data("info");
+		attacker = new Character(attackerInfo.name, attackerInfo.attackPower, attackerInfo.healthPoints,0);
+		$(this).prop('disabled', true);
+	});
+
+	//////////////////// After lock attacker button, listen for .enemy click //////////////////////
 	// Creating new defender instance
-	$(".enemy").on("click", function() {
-		defender = new Character($(this).data('name'),0,$(this).data('healthpoints'),$(this).data('counterattackpower'));
-		
+	$("#lockDefender").on("click", function() { 
+		var defenderInfo = $(".defender").data("info");
+		defender = new Character(defenderInfo.name, 0, defenderInfo.healthPoints, defenderInfo.counterAttackPower);
+		$(this).prop('disabled', true);
 	});
+
+	////////////////// After lock defender button, enable #attack button /////////////////////
 
 	// Commencing attack sequence on button click
 	$("#attack").on("click", function(){

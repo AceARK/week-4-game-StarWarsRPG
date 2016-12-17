@@ -2,3 +2,11 @@ img {
 	width: 100px;
 	height: 100px;
 }
+
+.players {
+	min-height: 300px;
+}
+
+#attack {
+	margin-top: 50%;
+}

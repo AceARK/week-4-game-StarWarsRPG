@@ -8,37 +8,61 @@
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
-	<div class="row">
-		<div class="col-md-12">
-			<h1>Star Wars RPG</h1>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Star Wars RPG</h1>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-md-3 attacker" data-name="Obi-Wan Kenobi" data-healthpoints="140" data-attackpower="9" data-counterattackpower="10">
+		<div class="row">
+			<div class="col-md-12 message">
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="player1" class="col-md-3 contender">
 					<img src="assets/images/obiwanKenobe.jpg">
 				</div>
-				<div class="col-md-3 attacker" data-name="Darth Vader" data-healthpoints="160" data-attackpower="14" data-counterattackpower="25">
+				<div id="player2" class="col-md-3 contender">
 					<img src="assets/images/darthVader.jpg">
 				</div>
-				<div class="col-md-3 attacker" data-name="Luke Skywalker" data-healthpoints="120" data-attackpower="8" data-counterattackpower="7">
+				<div id="player3" class="col-md-3 contender">
 					<img src="assets/images/lukeSkywalker.jpg">
 				</div>
-				<div class="col-md-3 attacker" data-name="Darth Maul" data-healthpoints="140" data-attackpower="10" data-counterattackpower="20">
+				<div id="player4" class="col-md-3 contender">
 					<img src="assets/images/darthmaul.jpg">
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-1">
-			<button id="attack" class="btn-lg btn btn-info">Attack</button>
+		<div class="row players">
+			<div class="col-md-3 attacker">
+				
+			</div>
+			<div class="col-md-2 col-md-offset-2">
+				<button id="attack" class="btn-lg btn btn-info">Attack</button>
+			</div>
+			<div class="col-md-3 col-md-offset-2 defender">
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<button id="lockAttacker" class="btn-lg btn btn-info">Lock Attacker</button>
+			</div>
+			<div class="col-md-3 col-md-offset-6">
+				<button id="lockDefender" class="btn-lg btn btn-info">Lock Defender</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 gameStats">
+				
+			</div>
 		</div>
 	</div>
-
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-6">
 			<div class="row">
 				<div class="col-md-3 enemy" data-name="Obi-Wan Kenobi" data-healthpoints="140" data-attackpower="9" data-counterattackpower="10">
@@ -74,6 +98,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </body>
 </html>
