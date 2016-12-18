@@ -1,12 +1,73 @@
 img {
-	width: 100px;
-	height: 100px;
+	width: 180px;
+	height: 180px;
 }
 
-.players {
+.contenderRow {
+	min-height: 200px;
+}
+
+.arena {
+	min-height: 200px;
+}
+
+.gameStats {
+	background: rgba(0,0,0,0.5);
+	border: 2px solid black;
+	border-radius: 3px;
 	min-height: 300px;
+	width: 35%;
+	margin-left: 30px;
+}
+
+button{
+	padding: 10px;
 }
 
 #attack {
-	margin-top: 50%;
+	margin-top: 120px;
 }
+
+.defeated {
+	min-height: 200px;
+	padding: 15px;
+	margin-top: 30px;
+}
+
+#attack {
+	/*margin-top: 50%;*/
+}
+
+.defender {
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+.attacker {
+
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
+
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
+}
+
+@-webkit-keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #B6FF00, 0 0 35px #B6FF00, 0 0 40px #B6FF00, 0 0 50px #B6FF00, 0 0 75px #B6FF00;
+  }
+}
+
+
