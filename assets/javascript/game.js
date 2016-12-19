@@ -160,7 +160,7 @@ $(document).ready(function(){
 		$("#lockButton")[0].currentTime = 0;
     	$("#lockButton")[0].play();
 		// perform anything only if attacker is locked
-		$("#directions").html("Click Attack button to attack");
+		$("#directions").html("Click Attack button to attack, and keep clicking to defeat the defender");
 		// if(attackerLocked) {
 			// defender lock flat set to true
 			defenderLocked = true;
