@@ -12,10 +12,7 @@
 	<div class="container-fluid text-center">
 
 		<!-- Heading -->
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<h1>Star Wars RPG</h1>
-			</div>
+		<div class="row heading">
 		</div>
 
 		<!-- Content -->
@@ -69,7 +66,7 @@
 					</div>
 
 					<!-- Attack and Reset buttons -->
-					<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
+					<div class="gameButtons col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
 						<!-- Attack button -->
 						<div class="row">
 							<button id="attack" class="btn-lg btn btn-info">Attack</button>
@@ -81,7 +78,7 @@
 					</div>
 
 					<!-- Defender area -->
-					<div class="defender col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-2">
+					<div class="defender col-md-3 col-sm-3">
 						<div class="name"></div>
 						<div class="defender-image"></div>
 					</div>
@@ -103,12 +100,20 @@
 				<div class="row stats text-center">
 					<!-- Attacker Stats -->
 					<div class="attackerStats col-md-3 col-sm-3">
-						
+						<div class="text">
+							Health Points <div id="attackerHealth"></div>
+							Attack Power <div id="attackPoints"></div>
+						</div>
 					</div>
 					<!-- Game stats -->
 					<div class="gameStats col-md-6 col-sm-6"></div>
 					<!-- Defender stats -->
-					<div class="defenderStats col-md-3 col-sm-3"></div>
+					<div class="defenderStats col-md-3 col-sm-3">
+						<div class="text">
+							Health Points <div id="defenderHealth"></div>
+							Counter Attack Power <div id="counterAttackPoints"></div>
+						</div>
+					</div>
 				</div>
 			<!-- End of left side -->
 			</div>
@@ -117,7 +122,9 @@
 			<div class="col-md-3">
 				<!-- Guidelines/ Rules/ Comments on the game -->
 				<div class="row">
-					<div class="comments"></div>
+					<div class="comments">
+						<div id="directions"></div>
+					</div>
 						
 				</div>
 				<!-- Defeated contenders -->

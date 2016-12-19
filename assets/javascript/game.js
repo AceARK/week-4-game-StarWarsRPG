@@ -19,7 +19,6 @@ class Character {
 	attack(defenderObject) {
 		// increase attacker's attack power on each attack
 		this.attackPower = this.attackPower + this.initialAttackPower;
-		console.log(this.name + " attacked " + defenderObject.name + " with attack power " + this.attackPower);
 		// call defender's defend() function
 		defenderObject.defend(this);
 	}
@@ -28,7 +27,6 @@ class Character {
 	defend(attackerObject) {
 		// reduce defender's health points as a result of attacker's attack
 		this.healthPoints = this.healthPoints - attackerObject.attackPower;
-		console.log(this.name + " got hit by " + attackerObject.name + " and lost health points " + this.healthPoints);
 		// If defender is not dead, launch counter attack
 		if(this.healthPoints > 0) {
 			attackerObject.counterAttack(this);
@@ -39,8 +37,7 @@ class Character {
 	counterAttack(defenderObject) {
 		// reduce attacker's health points from defender's attack
 		this.healthPoints = this.healthPoints - defenderObject.counterAttackPower;
-		console.log(defenderObject.name + " counter attacked " + this.name + " with counter attack power " + defenderObject.counterAttackPower);
-		console.log(this.name + "'s current health is " + this.healthPoints);		
+		// $(".gameStats").(this.name + "'s current health is " + this.healthPoints);		
 	}
 
 }
@@ -53,10 +50,17 @@ $(document).ready(function(){
 	// initialize game
 	resetGame();
 
+	$("#directions").html("Click on a player image to choose your Attacker");
+
+	// (function blink() { 
+	//   $('#directions').fadeOut(700).fadeIn(700, blink); 
+	// })();
+
 	// On click of contender
 	$(".contender").on("click", function() {	
 		// If attacker is not locked yet,
 		if(!attackerLocked) {
+			$("#directions").html("To confirm selection, click on Lock Attacker. If not, select another.");
 			// console.log("1 The id is " + $(this).attr('id'));
 			var attackerInfo = $(".attacker").data("info");
 			// attacker exists
@@ -88,6 +92,7 @@ $(document).ready(function(){
 
 			// Else if defender is not locked
 		} else if(!defenderLocked) {
+			$("#directions").html("To confirm selection, click on Lock Defender. If not, select another.");	
 			var defenderInfo = $(".defender").data("info");
 			// defender exists
 			if(defenderInfo !== undefined) {
@@ -129,12 +134,17 @@ $(document).ready(function(){
 	// Creating new Character object called attacker on locking attacker
 	// on click of lock attacker button
 	$("#lockAttacker").on("click", function() {
+		// Notification to user
+		$("#directions").html("Click on player image to choose a Defender");
 		// attacker locked flag set to true
 		attackerLocked = true;
 		// variable to get data attributes of attacker 
 		var attackerInfo = $(".attacker").data("info");
 		// create new object and initializing values based on data attributes
 		attacker = new Character(attackerInfo.name, attackerInfo.attackPower, attackerInfo.healthPoints,0);
+		// update attacker stats
+		$("#attackerHealth").html(attackerInfo.healthPoints);
+		$("#attackPoints").html(attackerInfo.attackPower);
 		// disable lock button
 		$(this).prop('disabled', true);
 		// enable defender lock button
@@ -145,6 +155,7 @@ $(document).ready(function(){
 	// on click of lock defender button
 	$("#lockDefender").on("click", function() { 
 		// perform anything only if attacker is locked
+		$("#directions").html("Click Attack button to attack");
 		// if(attackerLocked) {
 			// defender lock flat set to true
 			defenderLocked = true;
@@ -152,6 +163,9 @@ $(document).ready(function(){
 			var defenderInfo = $(".defender").data("info");
 			// create defender object and initialize values using data attributes
 			defender = new Character(defenderInfo.name, 0, defenderInfo.healthPoints, defenderInfo.counterAttackPower);
+			// update attacker stats
+			$("#defenderHealth").html(defenderInfo.healthPoints);
+			$("#counterAttackPoints").html(defenderInfo.counterAttackPower);
 			// disable lock defender button
 			$(this).prop('disabled', true);
 			// enable attack button
@@ -167,12 +181,24 @@ $(document).ready(function(){
 			attackEnabled = true;
 			// call attack()
 			attacker.attack(defender);
+			// display gamestats 
+			$(".gameStats").html(attacker.name + " attacked " + defender.name + " with " + attacker.attackPower+ ".<br>");
+			// $(".gameStats").append("<br>" +defender.name + "'s healthpoints " + defender.healthPoints + ".<br>");
+			$(".gameStats").append(defender.name + " counter-attacked " + attacker.name + " with " + defender.counterAttackPower + ".<br>");
+			// $(".gameStats").append(attacker.name + "'s healthpoints reduced to " + attacker.healthPoints + ".");
+			// update attacker stats
+			$("#attackerHealth").html(attacker.healthPoints);
+			$("#attackPoints").html(attacker.attackPower);
+			// update defender stats
+			$("#defenderHealth").html(defender.healthPoints);
+			$("#counterAttackPoints").html(defender.counterAttackPower);
 			// checking for win condition
 			if(defender.healthPoints <= 0) {
+				// Notify user
+				$("#directions").html("Defender defeated. Choose another Defender");
 				var defenderInfo = $(".defender").data("info");
 				// move defender to defeated area
 				$(".defeated .defeated-image").append($(".defender .defender-image").html());
-				$(".defeated .name").append($(".defender .name").html());
 				$(".defender .defender-image").empty();
 				$(".defender .name").empty();
 
@@ -184,9 +210,10 @@ $(document).ready(function(){
 
 				// win condition
 				if(contenderDefeated >= 2) {
-					console.log("Contender defeated " + contenderDefeated);
-					console.log(attacker.name + " wins. Reset game to start anew."); 
-					$(".attacker").css("border", "5px solid blue"); ///////// modify to specify css for winner //////////
+					$("#directions").html("You win. Click the Reset button to play again.");
+					$(".gameStats").html(defender.name + " defeated. <br>");
+					$(".gameStats").append(attacker.name + " wins."); 
+					$(".attacker").addClass("winner"); ///////// modify to specify css for winner //////////
 					// disable attack button 
 					$("#attack").prop('disabled', true);
 					attackEnabled = false;
@@ -194,9 +221,9 @@ $(document).ready(function(){
 				} else {
 					// else incremenet defeated counter
 					contenderDefeated++;
-					console.log("Contender defeated " + contenderDefeated);
+					$(".gameStats").html(defender.name + " defeated.<br>");
 					// $(".defeated").append($(".defender").html());
-					console.log("Choose next defender.");
+					$(".gameStats").append("Choose next defender.");
 					// enable defender lock button again to wait for new defender
 					defenderLocked = false;
 					$("#lockDefender").prop('disabled', false);
@@ -207,7 +234,8 @@ $(document).ready(function(){
 				
 			} // loss condition
 			else if(attacker.healthPoints <= 0) {
-				console.log("You lose. Restart game.");
+				$("#directions").html("You lose. Click the Reset button to play again.");
+				$(".gameStats").html(attacker.name + " lost against " + defender.name + ".");
 				// disable attack button
 				attackEnabled = false;
 				$("#attack").prop('disabled', true);
@@ -261,6 +289,8 @@ function resetGame() {
 	$("#player4 .name").html($("#player4").data("info").name);
 	$("#player4 .hp").html("HP: " + $("#player4").data("info").healthPoints);
 
+	$(".attacker").removeClass("winner");
+
 	// flush out attacker div
 	$(".attacker .attacker-image").empty();
 	$(".attacker .name").empty();
@@ -271,5 +301,15 @@ function resetGame() {
 	$(".defeated .defeated-image").empty();
 	$(".defeated .name").empty();
 
+	// update attacker stats
+	$("#attackerHealth").empty();
+	$("#attackPoints").empty();
+	// update defender stats
+	$("#defenderHealth").empty();
+	$("#counterAttackPoints").empty();
+
 	$("#reset").hide();
+
+	$("#directions").html("Click on a player image to choose your Attacker");
+	$(".gameStats").html("");
 }
