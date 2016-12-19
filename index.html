@@ -8,124 +8,131 @@
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
-	<div class="container text-center">
+	<!-- Container -->
+	<div class="container-fluid text-center">
+
+		<!-- Heading -->
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<h1>Star Wars RPG</h1>
 			</div>
 		</div>
-		<!-- <div class="row">
-			<div class="col-md-12 col-sm-12 message"></div>
-		</div> -->
-		<div class="row contenderRow">
-			<div class="col-md-3 col-sm-3">
-				<div id="name" class="player1"></div>
-				<div id="player1" class="contender">
-					<img src="assets/images/obiwanKenobe.jpg">
-				</div>
-				<div id="hp" class="player1"></div>
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<div id="name" class="player2"></div>
-				<div id="player2" class="contender">
-					<img src="assets/images/darthVader.jpg">
-				</div>
-				<div id="hp" class="player2"></div>
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<div id="name" class="player3"></div>
-				<div id="player3" class="contender">
-					<img src="assets/images/lukeSkywalker.jpg">
-				</div>
-				<div id="hp" class="player3"></div>
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<div id="name" class="player4"></div>
-				<div id="player4" class="contender">
-					<img src="assets/images/darthmaul.jpg">
-				</div>
-				<div id="hp" class="player4"></div>
-			</div>
-		</div>
 
-		<div class="row arena">
-			<div class="col-md-3 col-sm-3">
-				<div id="name"></div>
-				<div class="attacker"></div>
-				<div id="hp"></div>
-			</div>
-			<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
-				<button id="attack" class="btn-lg btn btn-info">Attack</button>
-			</div>
-			<div class="col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-2">
-				<div id="name"></div>
-				<div class="defender"></div>
-				<div id="hp"></div>
-			</div>
-		</div>
-
-		<div class="row lockButtons">
-			<div class="col-md-3 col-sm-3">
-				<button id="lockAttacker" class="btn-lg btn btn-info">Lock Attacker</button>
-			</div>
-			<div class="col-md-3 col-sm-3 col-md-offset-6 col-sm-offset-6">
-				<button id="lockDefender" class="btn-lg btn btn-info">Lock Defender</button>
-			</div>
-		</div>
-
+		<!-- Content -->
 		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<button id="reset" class="btn-lg btn btn-info">Reset</button>
-			</div>
-		</div>
 
-		<!-- <div class="row">
-			<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 gameStats">
-				
-			</div>
-		</div> -->
+		<!-- Left side -->
+			<div class="col-md-9">
 
-		<div class="row">
-			<div class="col-md-5 col-sm-5 gameStats"></div>
-			<div class="col-md-7 col-sm-7 defeated"></div>
+				<!-- Contenders -->
+				<div class="row playerRow">
+					<!-- Player 1 -->
+					<div id="player1" class="contender col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="contender-image">
+							<img src="assets/images/obiwanKenobe.jpg">
+						</div>
+						<div class="hp"></div>
+					</div>
+					<!-- Player 2 -->
+					<div id="player2" class="contender col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="contender-image">
+							<img src="assets/images/darthVader.jpg">
+						</div>
+						<div class="hp"></div>
+					</div>
+					<!-- Player 3 -->
+					<div id="player3" class="contender col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="contender-image">
+							<img src="assets/images/lukeSkywalker.jpg">
+						</div>
+						<div class="hp"></div>
+					</div>
+					<!-- Player 4 -->
+					<div id="player4" class="contender col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="contender-image">
+							<img src="assets/images/darthmaul.jpg">
+						</div>
+						<div class="hp"></div>
+					</div>
+				</div>
+
+				<!-- Game arena -->
+				<div class="row arena">
+					<!-- Attacker area -->
+					<div class="attacker col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="attacker-image"></div>
+					</div>
+
+					<!-- Attack and Reset buttons -->
+					<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
+						<!-- Attack button -->
+						<div class="row">
+							<button id="attack" class="btn-lg btn btn-info">Attack</button>
+						</div>
+						<!-- Reset button -->
+						<div class="row">
+							<button id="reset" class="btn-lg btn btn-info">Reset</button>
+						</div>
+					</div>
+
+					<!-- Defender area -->
+					<div class="defender col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-2">
+						<div class="name"></div>
+						<div class="defender-image"></div>
+					</div>
+				</div>
+
+				<!-- Lock buttons -->
+				<div class="row lockButtons">
+					<!-- Button to lock attacker -->
+					<div class="col-md-3 col-sm-3">
+						<button id="lockAttacker" class="btn-lg btn btn-info">Lock Attacker</button>
+					</div>
+					<!-- Button to lock defender -->
+					<div class="col-md-3 col-sm-3 col-md-offset-6 col-sm-offset-6">
+						<button id="lockDefender" class="btn-lg btn btn-info">Lock Defender</button>
+					</div>
+				</div>
+
+				<!-- Stats -->
+				<div class="row stats text-center">
+					<!-- Attacker Stats -->
+					<div class="attackerStats col-md-3 col-sm-3">
+						
+					</div>
+					<!-- Game stats -->
+					<div class="gameStats col-md-6 col-sm-6"></div>
+					<!-- Defender stats -->
+					<div class="defenderStats col-md-3 col-sm-3"></div>
+				</div>
+			<!-- End of left side -->
+			</div>
+
+			<!-- Right side -->
+			<div class="col-md-3">
+				<!-- Guidelines/ Rules/ Comments on the game -->
+				<div class="row">
+					<div class="comments"></div>
+						
+				</div>
+				<!-- Defeated contenders -->
+				<div class="row">
+					<h2>Defeated contenders</h2>
+					<div class="defeated">
+						<div class="name"></div>
+						<div class="defeated-image"></div>
+					</div>
+				</div>
+			<!-- End of right side -->
+			</div>
+		<!-- End of Content -->
 		</div>
+	<!-- End of container-fluid -->
 	</div>
-	<!-- <div class="row">
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-md-3 enemy" data-name="Obi-Wan Kenobi" data-healthpoints="140" data-attackpower="9" data-counterattackpower="10">
-					<img src="assets/images/obiwanKenobe.jpg">
-				</div>
-				<div class="col-md-3 enemy" data-name="Darth Vader" data-healthpoints="160" data-attackpower="14" data-counterattackpower="25">
-					<img src="assets/images/darthVader.jpg">
-				</div>
-				<div class="col-md-3 enemy" data-name="Luke Skywalker" data-healthpoints="120" data-attackpower="8" data-counterattackpower="7">
-					<img src="assets/images/lukeSkywalker.jpg">
-				</div>
-				<div class="col-md-3 enemy" data-name="Darth Maul" data-healthpoints="140" data-attackpower="10" data-counterattackpower="20">
-					<img src="assets/images/darthmaul.jpg">
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-md-3 defender" data-name="Obi-Wan Kenobi" data-healthpoints="140" data-attackpower="9" data-counterattackpower="10">
-					<img src="assets/images/obiwanKenobe.jpg">
-				</div>
-				<div class="col-md-3 defender" data-name="Darth Vader" data-healthpoints="160" data-attackpower="14" data-counterattackpower="25">
-					<img src="assets/images/darthVader.jpg">
-				</div>
-				<div class="col-md-3 defender" data-name="Luke Skywalker" data-healthpoints="120" data-attackpower="8" data-counterattackpower="7">
-					<img src="assets/images/lukeSkywalker.jpg">
-				</div>
-				<div class="col-md-3 defender" data-name="Darth Maul" data-healthpoints="140" data-attackpower="10" data-counterattackpower="20">
-					<img src="assets/images/darthmaul.jpg">
-				</div>
-			</div>
-		</div>
-	</div> -->
 </body>
 </html>

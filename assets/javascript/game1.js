@@ -44,84 +44,61 @@ class Character {
 	}
 
 }
-
-// declaring variables required for game
-var attacker, defender, attackerLocked, defenderLocked, attackEnabled, contenderDefeated;
-
+ 
 $(document).ready(function(){
 
-	// initialize game
-	resetGame();
+	// initialize player's data attributes
+	$("#player1").data("info", {"name":"Obi-Wan Kenobe", "healthPoints":140, "attackPower":9, "counterAttackPower":10, "originDivId": "#player1"});
+	$("#player2").data("info", {"name":"Darth Vader", "healthPoints":160, "attackPower":14, "counterAttackPower":25, "originDivId": "#player2"});
+	$("#player3").data("info", {"name":"Luke Skywalker", "healthPoints":120, "attackPower":7, "counterAttackPower":8, "originDivId": "#player3"});
+	$("#player4").data("info", {"name":"Darth Maul", "healthPoints":140, "attackPower":10, "counterAttackPower":20, "originDivId": "#player4"});
+
+	var attacker;
+	var defender;
+	var attackerLocked = false;
+	var defenderLocked = false;
+	var attackEnabled = false;
+	var contenderDefeated = 0;
+
+	// disable defender lock button until after attacker locked
+	$("#lockDefender").prop('disabled', true);
+	// disable attack button until after attacker and defender locked
+	$("#attack").prop('disabled', true);
+
+	////////// configure displaying name, hp and attack/counterattackpoints below each image /////////////
 
 	// On click of contender
 	$(".contender").on("click", function() {	
 		// If attacker is not locked yet,
 		if(!attackerLocked) {
-			// console.log("1 The id is " + $(this).attr('id'));
 			var attackerInfo = $(".attacker").data("info");
 			// attacker exists
 			if(attackerInfo !== undefined) {
 				// swap image from attacker div to the right origin contender div
-				//$((attackerInfo.originDivId) +" .contender-image").html($(".attacker-image").html()); 
-				$((attackerInfo.originDivId) +" .contender-image").show();
-				// showing name and hp again
-				$((attackerInfo.originDivId) +" .name").show();
-				$((attackerInfo.originDivId) +" .hp").show();
+				$(attackerInfo.originDivId).html($(".attacker").html());
 			} 
-			var selectedPlayerId = "#" + $(this).attr('id');
 			// transfer image from contender div to attacker div
-			console.log("The id is " + $(this).attr('id'));
-			// var selectedPlayerId = "#" + $(this).attr('id');
-			$(".attacker-image").html($(selectedPlayerId + ' .contender-image').html()); //////////////
-			
-			// hide contender name
-			$(selectedPlayerId+ ' .name').hide();
-			// hide contender hp
-			$(selectedPlayerId+ ' .hp').hide();
-			// empty contents from contender image div
-			$(selectedPlayerId + ' .contender-image').hide();
-
+			$(".attacker").html($(this).html());
+			// empty the contender div 
+			$(this).empty(); 
 			// transfer data attributes of contender to attacker for attacker object creation
 			$(".attacker").data("info", $(this).data("info"));
-			// add attacker name
-			$(".attacker .name").html($(".attacker").data("info").name);
-
 			// Else if defender is not locked
 		} else if(!defenderLocked) {
 			var defenderInfo = $(".defender").data("info");
 			// defender exists
 			if(defenderInfo !== undefined) {
-
-				// showing name and hp again
-				$((defenderInfo.originDivId) +" .name").show();
-				$((defenderInfo.originDivId) +" .hp").show();
-				// swap image from defender div to the origin contender div
-				//$((defenderInfo.originDivId) +" .contender-image").html($(".defender .defender-image").html());
-				$((defenderInfo.originDivId) +" .contender-image").show();
-
-				// if defender dead
 				if(defenderInfo.healthPoints <=0) {
 					// swap image from defender div to the origin contender div
-					$(defenderInfo.originDivId).html($(".defender .defender-image").html());
+				$(defenderInfo.originDivId).html($(".defender").html());
 				}
 			}
-			var selectedPlayerId = "#" + $(this).attr('id');
 			// transfer image from contender to defender div
-			$(".defender .defender-image").html($(selectedPlayerId + ' .contender-image').html());
-
-			////// Can be put in a function??? //////
-			// hide contender name
-			$(selectedPlayerId+ ' .name').hide();
-			// hide contender hp
-			$(selectedPlayerId+ ' .hp').hide();
-			// empty contents from contender image div
-			$(selectedPlayerId + ' .contender-image').hide();
-			/////// end function to hide selected contender ////////
-
+			$(".defender").html($(this).html());
+			// empty contents from contender
+			$(this).empty();
 			// transfer data attributes to defender for defender object creation
-			$(".defender").data("info", $(this).data("info"));	
-			// add defender name
-			$(".defender .name").html($(".defender").data("info").name);		
+			$(".defender").data("info", $(this).data("info"));			
 		}
 		     
 	});
@@ -169,19 +146,9 @@ $(document).ready(function(){
 			attacker.attack(defender);
 			// checking for win condition
 			if(defender.healthPoints <= 0) {
-				var defenderInfo = $(".defender").data("info");
 				// move defender to defeated area
-				$(".defeated .defeated-image").append($(".defender .defender-image").html());
-				$(".defeated .name").append($(".defender .name").html());
-				$(".defender .defender-image").empty();
-				$(".defender .name").empty();
-
-				// remove name and hp of defeated from contender div
-				$(defenderInfo.originDivId +" .name").hide();
-				$(defenderInfo.originDivId +" .hp").hide();
-
-				$(".defender").data("info", "");
-
+				$(".defeated").append($(".defender").html());
+				$(".defender").empty();
 				// win condition
 				if(contenderDefeated >= 2) {
 					console.log("Contender defeated " + contenderDefeated);
@@ -190,7 +157,6 @@ $(document).ready(function(){
 					// disable attack button 
 					$("#attack").prop('disabled', true);
 					attackEnabled = false;
-					$("#reset").show();
 				} else {
 					// else incremenet defeated counter
 					contenderDefeated++;
@@ -208,68 +174,32 @@ $(document).ready(function(){
 			} // loss condition
 			else if(attacker.healthPoints <= 0) {
 				console.log("You lose. Restart game.");
-				// disable attack button
-				attackEnabled = false;
-				$("#attack").prop('disabled', true);
-				$("#reset").show();
 			}
 		}
 	});
 
 	// call reset() function on click of button
 	$("#reset").on("click", function() {
-		resetGame();
+		reset();
 	});
 
 });
 
 // reset function
-function resetGame() {
-		// initialize player's data attributes
-	$("#player1").data("info", {"name":"Obi-Wan Kenobe", "healthPoints":140, "attackPower":9, "counterAttackPower":10, "originDivId": "#player1"});
-	$("#player2").data("info", {"name":"Darth Vader", "healthPoints":160, "attackPower":14, "counterAttackPower":25, "originDivId": "#player2"});
-	$("#player3").data("info", {"name":"Luke Skywalker", "healthPoints":120, "attackPower":8, "counterAttackPower":8, "originDivId": "#player3"});
-	$("#player4").data("info", {"name":"Darth Maul", "healthPoints":140, "attackPower":10, "counterAttackPower":15, "originDivId": "#player4"});
+function reset() {
+		var attackerLocked = false;
+		var defenderLocked = false;
+		var attackEnabled = false;
+		var contenderDefeated = 0;
 
-	// set all flags to false and defeated counter to 0
-	attackerLocked = false;
-	defenderLocked = false;
-	attackEnabled = false;
-	contenderDefeated = 0;
+		$("#player1").html("<img src='assets/images/obiwanKenobe.jpg'>");
+		$("#player1").html("<img src='assets/images/darthVader.jpg'>");
+		$("#player1").html("<img src='assets/images/lukeSkywalker.jpg'>");
+		$("#player1").html("<img src='assets/images/darthmaul.jpg'>");
 
-	$('.contender-image').show();
-	$('.contender .name').show();
-	$('.contender .hp').show();
+		$(".attacker").empty();
+		delete $(".attacker").data("info");
 
-	// disable defender lock button until after attacker locked
-	$("#lockDefender").prop('disabled', true);
-	// defenderLocked = true;
-	// disable defender lock button until after attacker locked
-	$("#lockAttacker").prop('disabled', false);
-	// disable attack button until after attacker and defender locked
-	$("#attack").prop('disabled', true);
-
-	$("#player1 .name").html($("#player1").data("info").name);
-	$("#player1 .hp").html("HP: " + $("#player1").data("info").healthPoints);
-
-	$("#player2 .name").html($("#player2").data("info").name);
-	$("#player2 .hp").html("HP: " + $("#player2").data("info").healthPoints);
-
-	$("#player3 .name").html($("#player3").data("info").name);
-	$("#player3 .hp").html("HP: " + $("#player3").data("info").healthPoints);
-
-	$("#player4 .name").html($("#player4").data("info").name);
-	$("#player4 .hp").html("HP: " + $("#player4").data("info").healthPoints);
-
-	// flush out attacker div
-	$(".attacker .attacker-image").empty();
-	$(".attacker .name").empty();
-	// flush out defender div
-	$(".defender .defender-image").empty();
-	$(".defender .name").empty();
-	// flush out defeated div
-	$(".defeated .defeated-image").empty();
-	$(".defeated .name").empty();
-
-	$("#reset").hide();
+		$(".defender").empty();
+		delete $(".defender").data("info");
 }
