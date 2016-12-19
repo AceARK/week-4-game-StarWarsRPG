@@ -42,7 +42,7 @@ img {
 }
 
 #attack {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 .stats {
@@ -50,17 +50,10 @@ img {
   min-height: 250px;
 }
 
-.gameStats, .attackerStats, .defenderStats {
-	border: 2px solid black;
+.attackerStats, .defenderStats {
+	/*border: 2px solid black;*/
 	border-radius: 3px;
   min-height: 250px;
-}
-
-.gameStats {
-  width: 740px;
-  margin-left: 20px;
-  margin-right: 20px;
-  line-height: 50px;
 }
 
 .attackerStats {
@@ -74,7 +67,7 @@ img {
 }
 
 .defenderStats {
-  margin-right: 20px;
+  margin-left: 60px;
   width: 300px;
   line-height: 50px;
 }
@@ -82,15 +75,17 @@ img {
 button {
 	padding: 10px;
   margin: 10px;
+  min-width: 200px;
+  color: white; text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 .gameButtons {
-  margin-left: 335px;
+  margin-left: 310px;
 }
 
 .comments {
-  min-height: 380px;
-  border: 2px solid black;
+  min-height: 200px;
+  width: 700px;
   margin-right: 20px;
   line-height: 50px;
 }
@@ -100,26 +95,27 @@ button {
   -moz-animation: blinker 1.5s  infinite ;
   animation: blinker 1.5s  infinite ;
   font-size: 30px;
-  margin-top: 130px;
+  margin-top: 30px;
   margin-left: 30px;
   margin-right: 30px;
 }
 
 .defeated {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   border-radius: 3px;
-  min-height: 400px;
+  min-height: 450px;
   margin-right: 20px;
 }
 
 .defeated-image>img {
-  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
-  animation: neon4 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate;
+  margin: 10px;
 }
 
 .defender {
-   margin-left: 300px;
+   margin-left: 320px;
     width: 200px;
 }
 
@@ -165,15 +161,6 @@ button {
 
 @-webkit-keyframes neon3 {
   from {
-    box-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff, 0 0 180px #fff;
-  }
-  to {
-    box-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 35px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 75px #fff, 0 0 90px #fff;
-  }
-}
-
-@-webkit-keyframes neon4 {
-  from {
     box-shadow: 0 0 5px #fff, 0 0 10px #ffed93, 0 0 30px #ffed93, 0 0 40px #ffed93, 0 0 50px #ffed93; /*, 0 0 60px #ffed93, 0 0 70px #ffed93, 0 0 80px #ffed93;*/
   }
   to {
@@ -185,4 +172,119 @@ button {
   0% { opacity: 1.0; }
   50% { opacity: 0.0; }
   100% { opacity: 1.0; }
+}
+
+
+@media screen and (max-width: 1550px) {
+  .heading {
+    min-height: 60px;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .playerRow {
+    margin-top: 10px;
+    min-height: 200px;
+  }
+  
+  .arena {
+    margin-top: 5px;
+    min-height: 200px;
+  }
+
+  .lockButtons {
+    margin-top: 5px;
+  }
+
+  #attack {
+    margin-top: 60px;
+  }
+
+  .stats {
+    margin-top: 5px;
+    min-height: 160px;
+  }
+
+  .attackerStats, .defenderStats {
+    min-height: 160px;
+    width: 240px;
+    line-height: 30px;
+  }
+
+  .attackerStats {
+    margin-left: 20px;
+  }
+
+  .text {
+    margin-top: 10px;
+  }
+
+  .defenderStats {
+    margin-left: 50px;
+  }
+
+  button {
+    padding: 5px;
+    margin: 15px;
+    min-width: 170px;
+    color: white; text-shadow: black 0.1em 0.1em 0.2em;
+  }
+
+  .gameButtons {
+    margin-left: 240px;
+  }
+
+  .comments {
+    min-height: 160px;
+    width: 500px;
+    margin-left: 50px;
+    line-height: 40px;
+  }
+
+  #directions {
+    font-size: 25px;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .defeated {
+    min-height: 450px;
+    margin-right: 20px;
+  }
+
+  .defender {
+    margin-left: 225px;
+    width: 200px;
+  }
+
+  .defender-image {
+    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+    animation: neon1 1.5s ease-in-out infinite alternate;
+  }
+
+  .winner {
+     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00FF83, 0 0 70px #00FF83, 0 0 80px #00FF83, 0 0 100px #00FF83, 0 0 150px #00FF83;
+  }
+
+  .attacker {
+    margin-left: 45px;
+    width: 200px;
+  }
+
+  .attacker-image {
+    -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
 }

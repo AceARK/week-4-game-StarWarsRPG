@@ -105,10 +105,14 @@
 							Attack Power <div id="attackPoints"></div>
 						</div>
 					</div>
-					<!-- Game stats -->
-					<div class="gameStats col-md-6 col-sm-6"></div>
+					<!-- Guidelines/ Rules/ Comments on the game -->
+					<div class="col-md-6 col-sm-6">
+						<div class="center-block comments">
+							<div id="directions"></div>
+						</div>
+					</div>
 					<!-- Defender stats -->
-					<div class="defenderStats col-md-3 col-sm-3">
+					<div class="defenderStats center-block col-md-3 col-sm-3">
 						<div class="text">
 							Health Points <div id="defenderHealth"></div>
 							Counter Attack Power <div id="counterAttackPoints"></div>
@@ -120,18 +124,11 @@
 
 			<!-- Right side -->
 			<div class="col-md-3">
-				<!-- Guidelines/ Rules/ Comments on the game -->
-				<div class="row">
-					<div class="comments">
-						<div id="directions"></div>
-					</div>
-						
-				</div>
+				
 				<!-- Defeated contenders -->
 				<div class="row">
 					<h2>Defeated contenders</h2>
 					<div class="defeated">
-						<div class="name"></div>
 						<div class="defeated-image"></div>
 					</div>
 				</div>
@@ -139,6 +136,21 @@
 			</div>
 		<!-- End of Content -->
 		</div>
+		<!-- Audio files -->
+		<audio id="mainTheme" src="assets/sounds/star-wars-theme-song.mp3"
+		    autoplay="false" 
+		    width="0" 
+		    height="0">
+		</audio>
+		<audio id="attackSound">
+		    <source src="assets/sounds/attack.wav">
+		</audio>
+		<audio id="lockButton">
+		    <source src="assets/sounds/lockAttacker.wav">
+		</audio>
+		<audio id="reset">
+		    <source src="assets/sounds/lockAttacker.wav">
+		</audio>
 	<!-- End of container-fluid -->
 	</div>
 </body>

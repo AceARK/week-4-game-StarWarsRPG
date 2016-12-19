@@ -100,13 +100,12 @@ $(document).ready(function(){
 				// showing name and hp again
 				$((defenderInfo.originDivId) +" .name").show();
 				$((defenderInfo.originDivId) +" .hp").show();
-				// swap image from defender div to the origin contender div
-				//$((defenderInfo.originDivId) +" .contender-image").html($(".defender .defender-image").html());
+				// show image from defender div in the origin contender div
 				$((defenderInfo.originDivId) +" .contender-image").show();
 
 				// if defender dead
 				if(defenderInfo.healthPoints <=0) {
-					// swap image from defender div to the origin contender div
+					// show image from defender div in the origin contender div
 					$(defenderInfo.originDivId).html($(".defender .defender-image").html());
 				}
 			}
@@ -134,6 +133,9 @@ $(document).ready(function(){
 	// Creating new Character object called attacker on locking attacker
 	// on click of lock attacker button
 	$("#lockAttacker").on("click", function() {
+		// play sound
+		$("#lockButton")[0].currentTime = 0;
+    	$("#lockButton")[0].play();
 		// Notification to user
 		$("#directions").html("Click on player image to choose a Defender");
 		// attacker locked flag set to true
@@ -154,6 +156,9 @@ $(document).ready(function(){
 	// Creating new Character object called defender 
 	// on click of lock defender button
 	$("#lockDefender").on("click", function() { 
+		// play sound
+		$("#lockButton")[0].currentTime = 0;
+    	$("#lockButton")[0].play();
 		// perform anything only if attacker is locked
 		$("#directions").html("Click Attack button to attack");
 		// if(attackerLocked) {
@@ -175,6 +180,9 @@ $(document).ready(function(){
 
 	// Commencing attack sequence on button click
 	$("#attack").on("click", function(){
+		// play sound
+		$("#attackSound")[0].currentTime = 0;
+    	$("#attackSound")[0].play();
 		// perform only if attacker and defender are locked on
 		if(attackerLocked && defenderLocked) {
 			// set attack enabled flag to true
@@ -222,8 +230,8 @@ $(document).ready(function(){
 					// else incremenet defeated counter
 					contenderDefeated++;
 					$(".gameStats").html(defender.name + " defeated.<br>");
-					// $(".defeated").append($(".defender").html());
 					$(".gameStats").append("Choose next defender.");
+
 					// enable defender lock button again to wait for new defender
 					defenderLocked = false;
 					$("#lockDefender").prop('disabled', false);
@@ -299,7 +307,6 @@ function resetGame() {
 	$(".defender .name").empty();
 	// flush out defeated div
 	$(".defeated .defeated-image").empty();
-	$(".defeated .name").empty();
 
 	// update attacker stats
 	$("#attackerHealth").empty();
