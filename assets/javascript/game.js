@@ -225,11 +225,11 @@ function generateHP() {
 }
 
 function generateAP() {
-	return Math.floor(Math.random()* 30 + 1);
+	return Math.floor(Math.random()* 30 + 5);
 }
 
 function generateCAP() {
-	return Math.floor(Math.random()* 25 + 15);
+	return Math.floor(Math.random()* 20 + 15);
 }
 
 // reset function
