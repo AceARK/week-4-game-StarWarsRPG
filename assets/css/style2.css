@@ -214,7 +214,7 @@ button {
   }
 
   img {
-    width: 170px;
+    width: 150px;
     height: 150px;
   }
 
@@ -224,25 +224,20 @@ button {
   }
   
   .arena {
+    margin-top: 5px;
     min-height: 200px;
   }
 
   .lockButtons {
     margin-top: 5px;
-    margin-right: 180px;
   }
-
-  #lockAttacker {
-    margin-left: 20px;
-  }
-
 
   #attack {
     margin-top: 60px;
   }
 
   .stats {
-    margin-top: 10px;
+    margin-top: 5px;
     min-height: 160px;
   }
 
@@ -253,7 +248,7 @@ button {
   }
 
   .attackerStats {
-    margin-left: 0px;
+    margin-left: 20px;
   }
 
   .text {
@@ -261,8 +256,7 @@ button {
   }
 
   .defenderStats {
-    margin-right: 100px;
-    margin-left: 45px;
+    margin-left: 50px;
   }
 
   button {
@@ -273,20 +267,19 @@ button {
   }
 
   .gameButtons {
-    margin-left: 190px;
+    margin-left: 240px;
   }
 
   .comments {
-    margin-top: 50px;
     min-height: 160px;
     width: 500px;
-    margin-left: 30px;
+    margin-left: 50px;
     line-height: 40px;
   }
 
   #directions {
     font-size: 25px;
-    padding-top: 40px;
+    margin-top: 5px;
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -297,14 +290,13 @@ button {
   }
 
   .defender {
-    margin-left: 60px;
-    margin-right: 800px;
+    margin-left: 225px;
     width: 200px;
   }
 
 
   .attacker {
-    margin-left: 20px;
+    margin-left: 45px;
     width: 200px;
   }
 

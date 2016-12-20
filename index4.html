@@ -58,76 +58,64 @@
 				</div>
 
 				<!-- Game arena -->
-				<div class="row">
-					<div class="col-md-3">
-						<div class="row arena">
-							<!-- Attacker area -->
-							<div class="attacker col-md-3 col-sm-3">
-								<div class="name"></div>
-								<div class="attacker-image"></div>
-							</div>
+				<div class="row arena">
+					<!-- Attacker area -->
+					<div class="attacker col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="attacker-image"></div>
+					</div>
+
+					<!-- Attack and Reset buttons -->
+					<div class="gameButtons col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
+						<!-- Attack button -->
+						<div class="row">
+							<button id="attack" class="btn-lg btn btn-info">Attack</button>
 						</div>
-						<div class="row lockButtons">
-							<!-- Button to lock attacker -->
-							<div class="col-md-3 col-sm-3">
-								<button id="lockAttacker" class="btn-lg btn btn-info">Lock Attacker</button>
-							</div>
-						</div>
-						<div class="row stats">
-							<!-- Attacker Stats -->
-							<div class="attackerStats col-md-3 col-sm-3">
-								<div class="text">
-									Health Points <div id="attackerHealth"></div>
-									Attack Power <div id="attackPoints"></div>
-								</div>
-							</div>
+						<!-- Reset button -->
+						<div class="row">
+							<button id="reset" class="btn-lg btn btn-info">Reset</button>
 						</div>
 					</div>
-					<div class="col-md-6">
-						<div class="row">
-							<!-- Attack and Reset buttons -->
-							<div class="gameButtons col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
-								<!-- Attack button -->
-								<div class="row">
-									<button id="attack" class="btn-lg btn btn-info">Attack</button>
-								</div>
-								<!-- Reset button -->
-								<div class="row">
-									<button id="reset" class="btn-lg btn btn-info">Reset</button>
-								</div>
-							</div>
+
+					<!-- Defender area -->
+					<div class="defender col-md-3 col-sm-3">
+						<div class="name"></div>
+						<div class="defender-image"></div>
+					</div>
+				</div>
+
+				<!-- Lock buttons -->
+				<div class="row lockButtons">
+					<!-- Button to lock attacker -->
+					<div class="col-md-3 col-sm-3">
+						<button id="lockAttacker" class="btn-lg btn btn-info">Lock Attacker</button>
+					</div>
+					<!-- Button to lock defender -->
+					<div class="col-md-3 col-sm-3 col-md-offset-6 col-sm-offset-6">
+						<button id="lockDefender" class="btn-lg btn btn-info">Lock Defender</button>
+					</div>
+				</div>
+
+				<!-- Stats -->
+				<div class="row stats text-center">
+					<!-- Attacker Stats -->
+					<div class="attackerStats col-md-3 col-sm-3">
+						<div class="text">
+							Health Points <div id="attackerHealth"></div>
+							Attack Power <div id="attackPoints"></div>
 						</div>
-						<div class="row stats">
-							<!-- Guidelines/ Rules/ Comments on the game -->
-							<div class="col-md-6 col-sm-6">
-								<div class="center-block comments">
-									<div id="directions"></div>		
-								</div>
-							</div>
+					</div>
+					<!-- Guidelines/ Rules/ Comments on the game -->
+					<div class="col-md-6 col-sm-6">
+						<div class="center-block comments">
+							<div id="directions"></div>			<!-- CHANGE DIV POSIITON AND COLUMNS TO INCLUDE THIS IN LOCKBUTTON ROW -->	
 						</div>
-					</div>	
-					<div class="col-md-3">
-						<div class="row arena">
-							<!-- Defender area -->
-							<div class="defender col-md-3 col-sm-3">
-								<div class="name"></div>
-								<div class="defender-image"></div>
-							</div>
-						</div>
-						<div class="row lockButtons">
-							<!-- Button to lock defender -->
-							<div class="col-md-3 col-sm-3 col-md-offset-6 col-sm-offset-6">
-								<button id="lockDefender" class="btn-lg btn btn-info">Lock Defender</button>
-							</div>
-						</div>
-						<div class="row stats">
-							<!-- Defender stats -->
-							<div class="defenderStats center-block col-md-3 col-sm-3">
-								<div class="text">
-									Health Points <div id="defenderHealth"></div>
-									Counter Attack Power <div id="counterAttackPoints"></div>
-								</div>
-							</div>
+					</div>
+					<!-- Defender stats -->
+					<div class="defenderStats center-block col-md-3 col-sm-3">
+						<div class="text">
+							Health Points <div id="defenderHealth"></div>
+							Counter Attack Power <div id="counterAttackPoints"></div>
 						</div>
 					</div>
 				</div>

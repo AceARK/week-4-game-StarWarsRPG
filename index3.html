@@ -4,7 +4,7 @@
 	<title>Star Wars RPG</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style2.css">
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 <body>
@@ -62,20 +62,20 @@
 					<div class="col-md-3">
 						<div class="row arena">
 							<!-- Attacker area -->
-							<div class="attacker col-md-3 col-sm-3">
+							<div class="attacker">
 								<div class="name"></div>
 								<div class="attacker-image"></div>
 							</div>
 						</div>
 						<div class="row lockButtons">
 							<!-- Button to lock attacker -->
-							<div class="col-md-3 col-sm-3">
+							<div>
 								<button id="lockAttacker" class="btn-lg btn btn-info">Lock Attacker</button>
 							</div>
 						</div>
 						<div class="row stats">
 							<!-- Attacker Stats -->
-							<div class="attackerStats col-md-3 col-sm-3">
+							<div class="attackerStats">
 								<div class="text">
 									Health Points <div id="attackerHealth"></div>
 									Attack Power <div id="attackPoints"></div>
@@ -86,7 +86,7 @@
 					<div class="col-md-6">
 						<div class="row">
 							<!-- Attack and Reset buttons -->
-							<div class="gameButtons col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
+							<div class="gameButtons">
 								<!-- Attack button -->
 								<div class="row">
 									<button id="attack" class="btn-lg btn btn-info">Attack</button>
@@ -99,7 +99,7 @@
 						</div>
 						<div class="row stats">
 							<!-- Guidelines/ Rules/ Comments on the game -->
-							<div class="col-md-6 col-sm-6">
+							<div>
 								<div class="center-block comments">
 									<div id="directions"></div>		
 								</div>
@@ -109,20 +109,20 @@
 					<div class="col-md-3">
 						<div class="row arena">
 							<!-- Defender area -->
-							<div class="defender col-md-3 col-sm-3">
+							<div class="defender">
 								<div class="name"></div>
 								<div class="defender-image"></div>
 							</div>
 						</div>
 						<div class="row lockButtons">
 							<!-- Button to lock defender -->
-							<div class="col-md-3 col-sm-3 col-md-offset-6 col-sm-offset-6">
+							<div>
 								<button id="lockDefender" class="btn-lg btn btn-info">Lock Defender</button>
 							</div>
 						</div>
 						<div class="row stats">
 							<!-- Defender stats -->
-							<div class="defenderStats center-block col-md-3 col-sm-3">
+							<div class="defenderStats center-block">
 								<div class="text">
 									Health Points <div id="defenderHealth"></div>
 									Counter Attack Power <div id="counterAttackPoints"></div>
