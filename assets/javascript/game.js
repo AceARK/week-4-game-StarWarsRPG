@@ -219,13 +219,26 @@ $(document).ready(function(){
 
 });
 
+// generate random attack power, health points and counter attack power
+function generateHP() {
+	return Math.floor(Math.random()* 100 + 100);
+}
+
+function generateAP() {
+	return Math.floor(Math.random()* 10 + 5);
+}
+
+function generateCAP() {
+	return Math.floor(Math.random()* 10 + 8);
+}
+
 // reset function
 function resetGame() {
 		// initialize player's data attributes
-	$("#player1").data("info", {"name":"Obi-Wan Kenobe", "healthPoints":140, "attackPower":9, "counterAttackPower":10, "originDivId": "#player1"});
-	$("#player2").data("info", {"name":"Darth Vader", "healthPoints":160, "attackPower":14, "counterAttackPower":25, "originDivId": "#player2"});
-	$("#player3").data("info", {"name":"Luke Skywalker", "healthPoints":120, "attackPower":8, "counterAttackPower":8, "originDivId": "#player3"});
-	$("#player4").data("info", {"name":"Darth Maul", "healthPoints":140, "attackPower":10, "counterAttackPower":15, "originDivId": "#player4"});
+	$("#player1").data("info", {"name":"Obi-Wan Kenobe", "healthPoints":generateHP(), "attackPower":generateAP(), "counterAttackPower":generateCAP(), "originDivId": "#player1"});
+	$("#player2").data("info", {"name":"Darth Vader", "healthPoints":generateHP(), "attackPower":generateAP(), "counterAttackPower":generateCAP(), "originDivId": "#player2"});
+	$("#player3").data("info", {"name":"Luke Skywalker", "healthPoints":generateHP(), "attackPower":generateAP(), "counterAttackPower":generateCAP(), "originDivId": "#player3"});
+	$("#player4").data("info", {"name":"Darth Maul", "healthPoints":generateHP(), "attackPower":generateAP(), "counterAttackPower":generateCAP(), "originDivId": "#player4"});
 
 	// set all flags to false and defeated counter to 0
 	attackerLocked = true;
