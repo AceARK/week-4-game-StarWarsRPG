@@ -221,15 +221,15 @@ $(document).ready(function(){
 
 // generate random attack power, health points and counter attack power
 function generateHP() {
-	return Math.floor(Math.random()* 100 + 100);
+	return Math.floor(Math.random()* 200 + 100);
 }
 
 function generateAP() {
-	return Math.floor(Math.random()* 10 + 5);
+	return Math.floor(Math.random()* 30 + 1);
 }
 
 function generateCAP() {
-	return Math.floor(Math.random()* 10 + 8);
+	return Math.floor(Math.random()* 25 + 15);
 }
 
 // reset function
