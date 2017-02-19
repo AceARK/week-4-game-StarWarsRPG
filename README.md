@@ -1,7 +1,6 @@
 # week-4-game-StarWarsRPG
 
 Star Wars RPG
-
 --------------------------
 
 RPG using Object Oriented Programming, JavaScript constructors and jQuery.
