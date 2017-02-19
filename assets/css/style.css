@@ -292,8 +292,8 @@ button {
   }
 
   #directions {
-    font-size: 25px;
-    padding-top: 40px;
+    font-size: 20px;
+    padding-top: 30px;
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -320,3 +320,150 @@ button {
   }
 
 }
+
+@media screen and (max-height: 700px) {
+  .heading {
+    min-height: 50px; 
+  }
+
+  img {
+    width: 150px;
+    height: 130px;
+  }
+
+  .playerRow {
+    margin-top: 5px;
+    min-height: 150px;
+  }
+  
+  .arena {
+    min-height: 180px;
+  }
+
+  .lockButtons {
+    margin-top: 5px;
+    margin-right: 180px;
+  }
+
+  #lockAttacker {
+    margin-left: 20px;
+  }
+
+  #attack {
+    margin-top: 60px;
+    margin-left: -25px;
+  }
+
+  .stats {
+    margin-top: 10px;
+    min-height: 150px;
+  }
+
+  .attackerStats, .defenderStats {
+    min-height: 80px;
+    width: 240px;
+    line-height: 20px;
+    font-size: 20px;
+  }
+
+  .attacker-image, .defender-image {
+    width: 150px;
+  }
+
+  .attacker-image {
+    margin-left: 5px;
+  }
+
+  .defender-image {
+    margin-left: -20px;
+  }
+
+  .attackerStats {
+    margin-left: -10px;
+  }
+
+  .text {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .defenderStats {
+    margin-right: 100px;
+    margin-left: 10px;
+  }
+
+  button {
+    padding: 5px;
+    margin: 15px;
+    margin-top: 5px;
+    min-width: 150px;
+    height: 45px;
+    color: white; text-shadow: black 0.1em 0.1em 0.2em;
+  }
+
+  .gameButtons {
+    margin-left: 190px;
+  }
+
+  .comments {
+    margin-top: 50px;
+    min-height: 160px;
+    width: 420px;
+    margin-left: 20px;
+    line-height: 40px;
+  }
+
+  #directions {
+    font-size: 20px;
+    padding-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .defeated {
+    min-height: 450px;
+    margin-right: 20px;
+  }
+
+  .defender {
+    margin-left: 60px;
+    margin-right: 800px;
+    width: 200px;
+  }
+  
+  .defender> .name {
+    margin-right: 50px;
+    margin-left: -10px;
+  }
+
+  .attacker> .name, .defender> .name {
+    font-size: 20px;
+  }
+
+  .contender> .name, .contender> .hp {
+    font-size: 20px;
+  }
+
+  .stats {
+    margin-top: 10px;
+    min-height: 80px;
+  }
+
+  #reset {
+    margin-left: -25px;
+  }
+
+  .attacker {
+    margin-left: 20px;
+    width: 200px;
+  }
+
+  .arena {
+    margin-top: 5px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+} 
